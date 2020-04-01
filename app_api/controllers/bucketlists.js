@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { List } = require('../models/fullSchema');
 
-//Get all BucketList
+//Get All BucketList
 const allBuckets = (req, res) => {
    List.find({}).then((lists) => {
       res.send(lists)
@@ -30,10 +30,15 @@ const updateBucketList = (req, res) => {
 }
 
 // get One BucketList
-const getOneBucketList = (req, res) =>{
-   return res.status(200).json({mesage: 'true'})
+const getOneBucketList = (req, res) => {
+   List.findOne({
+      _id: req.params.bucketId
+   }).then((listDoc) => {
+      res.send(listDoc)
+   })
 }
 
+//Delete BucketList
 const deleteBucketList = (req, res) => {
    List.findOneAndRemove({
       _id: req.params.bucketId

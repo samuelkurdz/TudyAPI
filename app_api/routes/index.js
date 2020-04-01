@@ -25,7 +25,8 @@ router
 
 router
       .route('/bucketlists/:bucketId/tasks/:taskId')
+      .get(ctrlItems.getOneTask)
       .patch(ctrlItems.updateTask) //update existing task in a bucketlist
-      // .delete(ctrlItems)
+      .delete(ctrlItems.deleteTask) //delete a task from a list
 
 module.exports = router;

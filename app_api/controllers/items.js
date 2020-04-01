@@ -11,6 +11,16 @@ const getTasks = (req, res) => {
    })
 };
 
+const getOneTask = (req, res) => {
+   Task.findOne({
+      _id: req.params.taskId,
+      _listId: req.params.bucketId
+   }).then((TaskDoc) => {
+      res.send(TaskDoc)
+   })
+}
+
+
 const createNewTask  = (req, res) => {
    let newTask = new Task({
       title: req.body.title,
@@ -33,8 +43,19 @@ const updateTask = (req, res) => {
    })
 }
 
+const deleteTask = (req, res) => {
+   Task.findOneAndRemove({
+      _id: req.params.taskId,
+      _listId: req.params.bucketId
+   }).then((removedTaskDoc) => {
+      res.send(removedTaskDoc)
+   })
+}
+
 module.exports = {
    getTasks,
    createNewTask,
-   updateTask
+   getOneTask,
+   updateTask,
+   deleteTask
 };
