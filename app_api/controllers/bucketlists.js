@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-// const Loc = mongoose.model('User');
-
 const { List } = require('../models/fullSchema');
 
 //Get all BucketList

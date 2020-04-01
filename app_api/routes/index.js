@@ -17,5 +17,15 @@ router
    .patch(ctrlBucketlist.updateBucketList) //upadte a bucketlist by id
    .delete(ctrlBucketlist.deleteBucketList) //delete a bucketlist
 
+router
+      .route('/bucketlists/:bucketId/tasks')
+      .get(ctrlItems.getTasks) //find all tasks for a Bucketlist
+      .post(ctrlItems.createNewTask) //add new task to bucketlist
+
+
+router
+      .route('/bucketlists/:bucketId/tasks/:taskId')
+      .patch(ctrlItems.updateTask) //update existing task in a bucketlist
+      // .delete(ctrlItems)
 
 module.exports = router;

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const dbURI = 'mongodb://localhost/tudyAPI';
 
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
 
 mongoose.connection.on('connected', () => {
    console.log(`Mongoose connected to ${dbURI}`);
