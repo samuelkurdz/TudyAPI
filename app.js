@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -16,6 +17,7 @@ const apiRouter = require('./app_api/routes/index');
 //MiddleWares
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 
 
