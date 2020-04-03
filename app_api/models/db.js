@@ -1,7 +1,8 @@
 require('./fullSchema');
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb://localhost/tudyAPI';
+// const dbURI = 'mongodb://localhost/tudyAPI';
+const dbURI = "mongodb+srv://David:adeleye@bucketlists-gpytu.mongodb.net/test?retryWrites=true&w=majority";
 
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false});
 
